@@ -1,0 +1,149 @@
+[gd_scene load_steps=4 format=3 uid="uid://icik06nt5opc"]
+
+[ext_resource type="Texture2D" uid="uid://7oc7eh5x0t5d" path="res://clocks.jpeg" id="1_3pj8j"]
+[ext_resource type="Script" path="res://Scenes/Main.gd" id="1_lu1j0"]
+[ext_resource type="Texture2D" uid="uid://bl5qupdexoimm" path="res://arrow.png" id="3_y0qxd"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lu1j0")
+
+[node name="Clocks" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.26
+anchor_right = 0.512
+anchor_bottom = 0.26
+offset_left = -1118.78
+offset_top = -1137.52
+offset_right = 1120.22
+offset_bottom = 1138.48
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(1119, 1138)
+texture = ExtResource("1_3pj8j")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LongRotator" type="Control" parent="Clocks"]
+layout_mode = 1
+anchor_left = 0.498
+anchor_top = 0.518
+anchor_right = 0.498
+anchor_bottom = 0.518
+offset_left = -1.02222
+offset_top = -0.968018
+offset_right = -1.02222
+offset_bottom = -0.968018
+
+[node name="TextureRect" type="TextureRect" parent="Clocks/LongRotator"]
+layout_mode = 0
+offset_left = -85.0
+offset_top = -795.0
+offset_right = 90.0
+offset_bottom = 22.0
+texture = ExtResource("3_y0qxd")
+
+[node name="ShortRotator" type="Control" parent="Clocks"]
+layout_mode = 1
+anchor_left = 0.498
+anchor_top = 0.518
+anchor_right = 0.498
+anchor_bottom = 0.518
+offset_left = -1.02209
+offset_top = -0.968018
+offset_right = -1.02209
+offset_bottom = -0.968018
+
+[node name="TextureRect" type="TextureRect" parent="Clocks/ShortRotator"]
+layout_mode = 0
+offset_left = -85.0
+offset_top = -430.0
+offset_right = 90.0
+offset_bottom = 22.0
+texture = ExtResource("3_y0qxd")
+
+[node name="GenerateButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.256
+anchor_top = 0.482
+anchor_right = 0.755
+anchor_bottom = 0.537
+offset_left = 0.112
+offset_top = -0.264038
+offset_right = -0.240021
+offset_bottom = 0.375977
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "GENERATE"
+
+[node name="GuessButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.239198
+anchor_top = 0.697049
+anchor_right = 0.737654
+anchor_bottom = 0.752604
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Guess
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Hours" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.330247
+anchor_top = 0.595486
+anchor_right = 0.466049
+anchor_bottom = 0.659722
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "123"
+metadata/_edit_use_anchors_ = true
+
+[node name="Minutes" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.507716
+anchor_top = 0.596354
+anchor_right = 0.643519
+anchor_bottom = 0.66059
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "123"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.476852
+anchor_top = 0.600694
+anchor_right = 0.501543
+anchor_bottom = 0.651042
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = ":"
+metadata/_edit_use_anchors_ = true
+
+[node name="Result" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0987654
+anchor_top = 0.796875
+anchor_right = 0.904321
+anchor_bottom = 0.863715
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = " ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="GenerateButton" to="." method="_on_generate_button_pressed"]
+[connection signal="pressed" from="GuessButton" to="." method="_on_guess_button_pressed"]
